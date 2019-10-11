@@ -5,7 +5,8 @@ task:
   env:
     matrix:
       - INSTANCE: freebsd-12.0
-  install_script: pkg install -y ruby
-  bundle_install_script: bundle install
+  intall_script: pkg install -y ruby
+
+  bundle_install_script: gem install bundler && bundle install
   verify_script:
     bin/kitchen verify ${INSTANCE}
