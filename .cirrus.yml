@@ -1,0 +1,9 @@
+freebsd_instance:
+  image_family: freebsd-12-0
+
+task:
+  env:
+    matrix:
+      - INSTANCE: freebsd-12.0
+  script:
+    bin/kitchen verify ${INSTANCE}

@@ -8,6 +8,9 @@ vault-service-init-file-managed:
     - name: {{ vault.service.path }}
     - source: {{ vault.service.source }}
     - template: jinja
+    {% if grains.os_family == "FreeBSD" %}
+    - mode: 555
+    {% endif %}
 {% if grains.init == 'upstart' %}
   cmd.run:
     - name: initctl reload-configuration
