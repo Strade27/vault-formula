@@ -5,7 +5,7 @@ task:
   env:
     matrix:
       - INSTANCE: freebsd-12.0
-  intall_script: pkg install -y ruby ruby-gems
+  intall_script: pkg install -y ruby ruby25-gems
   install_bundler_script: gem install bundler
   bundle_install_script: bundle install
   verify_script:
