@@ -5,8 +5,8 @@ task:
   env:
     matrix:
       - INSTANCE: freebsd-12.0
-  intall_script: pkg install -y ruby
+  intall_script: pkg install -y ruby ruby-gems
   install_bundler_script: gem install bundler
   bundle_install_script: bundle install
   verify_script:
-    bin/kitchen verify ${INSTANCE}
+    KITCHEN_LOCAL_YAML=.kitchen.freebsd.yml bundle exec kitchen test -t test_freebsd/integration
